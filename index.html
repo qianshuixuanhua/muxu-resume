@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4f9ff">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self'; style-src 'self'; font-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'">
+  <link rel="stylesheet" href="font.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="pwa.css"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="慕煦个人简历"><meta name="apple-mobile-web-app-status-bar-style" content="default"><title>慕煦个人简历</title>
+</head>
+<body>
+  <!-- Resume first: color portrait, personal information and original skill icons; cloud white and electric blue gallery with paper mats. -->
+  <svg class="defs" aria-hidden="true"><defs>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="back" viewBox="0 0 24 24"><path d="M20 12H4m6-6-6 6 6 6"/></symbol>
+    <symbol id="diagonal" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="zoom" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7"/><path d="m15 15 6 6M6 10h8M10 6v8"/></symbol>
+    <symbol id="index-icon" viewBox="0 0 24 24"><path d="M3 5h4m4 0h10M3 12h4m4 0h10M3 19h4m4 0h10"/></symbol>
+  </defs></svg>
+  <section id="cover" class="screen resume-home" aria-label="慕煦个人主页">
+    <header class="resume-header"><span class="signature">Mu Xu</span><span>个人简历<br>PERSONAL RESUME</span></header>
+    <div class="resume-hero"><div class="resume-type" aria-hidden="true">MU<br><span>XU</span></div><figure><img data-image="portrait" alt="慕煦彩色个人照片"></figure><div class="resume-name"><span>MU XU</span><h1>慕煦</h1><p>求职意向<strong>品牌设计师</strong></p></div></div>
+    <dl class="resume-facts"><div><dt>年龄</dt><dd>22 岁</dd></div><div><dt>学历</dt><dd>本科</dd></div><div><dt>籍贯</dt><dd>安徽省合肥市</dd></div><div><dt>毕业院校</dt><dd>皖江工学院</dd></div></dl>
+    <section class="resume-skills" aria-label="技能掌握"><header><h2>技能掌握</h2><span>DESIGN TOOLKIT</span></header><div class="skill-badges"><div><img data-image="skill-ps" alt="Photoshop 图标"><span>Photoshop</span></div><div><img data-image="skill-ai" alt="Illustrator 图标"><span>Illustrator</span></div><div><img data-image="skill-ae" alt="After Effects 图标"><span>After Effects</span></div><div><img data-image="skill-procreate" alt="Procreate 图标"><span>Procreate</span></div></div></section>
+    <div class="resume-action"><button id="enter" class="enter-button">进入作品展<svg><use href="#arrow"/></svg></button><span>平面 · 品牌 · 立体创作</span><div class="pwa-tools"><button id="install-app">添加到桌面</button><span id="offline-state" role="status" aria-live="polite">正在准备离线内容</span></div></div>
+  </section>
+  <section id="gallery" class="screen gallery" aria-label="作品展厅" hidden>
+    <header class="gallery-header"><button id="gallery-home" class="home-button" aria-label="返回个人主页"><span class="signature">Mu Xu</span><span><svg><use href="#back"/></svg>个人主页</span></button><button class="index-button" data-index><svg><use href="#index-icon"/></svg>作品索引</button></header>
+    <div id="exhibits" class="exhibits" aria-label="横向作品展览" tabindex="0"></div>
+    <footer class="gallery-controls"><button id="project-prev" aria-label="上一件作品"><svg><use href="#back"/></svg><span>上一件</span></button><span id="project-position" aria-live="polite"></span><button id="project-next" aria-label="下一件作品"><span>下一件</span><svg><use href="#arrow"/></svg></button></footer>
+  </section>
+  <section id="index" class="screen index-screen" aria-label="全屏作品索引" hidden>
+    <header class="page-header"><span>MU XU / WORK INDEX</span><button class="close-button" data-back aria-label="关闭作品索引">关闭<svg><use href="#close"/></svg></button></header>
+    <div class="index-heading"><span>THE COLLECTION</span><h1>作品<span>索引</span><i>08</i></h1></div><nav id="index-list" class="index-list" aria-label="选择作品"></nav>
+    <button id="index-home" class="about-entry"><span>返回个人主页<small>PERSONAL RESUME</small></span><svg><use href="#back"/></svg></button>
+  </section>
+  <section id="case" class="screen case-screen" aria-label="作品详情" hidden>
+    <header class="case-header"><button class="back-button" id="case-back"><svg><use href="#back"/></svg>返回展厅</button><button class="index-button" data-index><svg><use href="#index-icon"/></svg>作品索引</button></header>
+    <div id="case-body" class="case-body"><div class="case-title"><span id="case-category"></span><h1 id="case-title"></h1><p id="case-subtitle"></p></div><div id="case-sections"></div><p id="case-description" class="case-description"></p><button id="case-next" class="case-next"><small>下一件作品</small><strong></strong><svg><use href="#arrow"/></svg></button></div>
+  </section>
+  <section id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="作品大图" hidden><header><span id="lightbox-title"></span><button id="image-zoom" class="icon-button" aria-label="放大或缩小图片"><svg><use href="#zoom"/></svg></button></header><div class="lightbox-stage"><img id="large-image" alt="作品大图"></div><footer><button id="image-prev" class="icon-button" aria-label="上一张图片"><svg><use href="#back"/></svg></button><button id="lightbox-close" class="lightbox-close">关闭大图<svg><use href="#close"/></svg></button><button id="image-next" class="icon-button" aria-label="下一张图片"><svg><use href="#arrow"/></svg></button></footer><span id="image-index" class="image-position" aria-live="polite"></span></section>
+  <section id="install-help" class="install-help" role="dialog" aria-modal="true" aria-label="添加到桌面" hidden><div><h2>添加到 iPhone 桌面</h2><ol><li>用 Safari 打开这个页面。</li><li>轻点“分享”按钮。</li><li>选择“添加到主屏幕”，再点“添加”。</li></ol><p>以后可以直接点桌面图标打开。</p><button id="install-close">知道了</button></div></section><script src="images.js"></script><script src="content.js"></script><script src="app.js"></script><script src="pwa.js"></script>
+</body>
+</html>
